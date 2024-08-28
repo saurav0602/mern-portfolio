@@ -13,10 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
@@ -56,4 +53,4 @@ app.post('/api/contact', async (req, res) => {
 // app.listen(port, () => {
 //   console.log(`Server running on http://localhost:${port}`);
 // })
-module.exports=server;
+module.exports=app;
